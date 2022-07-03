@@ -2,6 +2,10 @@ package org.rockpaperscissor;
 
 import org.rockpaperscissor.app.Session;
 
+/*
+* Entry point to the application.
+* Running the main function starts the game.
+* */
 public class Main {
 
     public static void main(String[] args) {

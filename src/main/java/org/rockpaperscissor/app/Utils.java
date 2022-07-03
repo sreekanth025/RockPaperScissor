@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Utils {
 
-    private static final Move[] moves = Move.values();
+    private static final Move[] MOVES = Move.values();
     private static Scanner scanner = new Scanner(System.in);
 
 
     public static Move randomMoveGenerator() {
-        return moves[new Random().nextInt(3)];
+        return MOVES[new Random().nextInt(3)];
     }
 
 
@@ -20,7 +20,7 @@ public class Utils {
 
 
     public static Move takeUserInput() {
-        System.out.print("Enter your choice: ");
+        System.out.print("\nEnter your choice: ");
         Integer userMove = scanner.nextInt();
 
         if(userMove < 0 || userMove > 2) {
@@ -28,7 +28,7 @@ public class Utils {
             return takeUserInput();
         }
 
-        return moves[userMove];
+        return MOVES[userMove];
     }
 
     public static Boolean askContinueToPlay() {

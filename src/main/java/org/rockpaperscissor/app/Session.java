@@ -19,19 +19,21 @@ public class Session {
                 case 1:
                     userWins++;
                     break;
+
                 case 2:
                     computerWins++;
+                    break;
+
+                default:
+                    // Unreachable
                     break;
             }
 
             Boolean playNextGame = Utils.askContinueToPlay();
 
             if(!playNextGame) {
-
                 System.out.println("\nTotal games played: " + Integer.toString(userWins + computerWins));
-                System.out.println("You won " + userWins.toString() + " games.");
-                System.out.println("Computer won " + computerWins.toString() + " games.");
-
+                System.out.println("You won " + userWins.toString() + " games and Computer won " + computerWins.toString() + " games.");
                 return;
             }
 

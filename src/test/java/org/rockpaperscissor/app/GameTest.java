@@ -11,12 +11,12 @@ class GameTest {
 
 
     @BeforeEach
-    void initEach() {
+    public void initEach() {
         game = new Game();
     }
 
     @Test
-    void testCheckWinner() {
+    public void testCheckWinner() {
         System.out.println("This test ran");
         assertAll(
                 () -> assertEquals(0, game.checkWinner(Move.PAPER, Move.PAPER)),

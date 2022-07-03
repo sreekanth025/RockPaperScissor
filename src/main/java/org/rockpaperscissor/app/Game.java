@@ -13,7 +13,6 @@ public class Game {
             Move userMove = Utils.takeUserInput();
             Move computerMove = Utils.randomMoveGenerator();
 
-            System.out.println("");
             System.out.println("Your move:      " + userMove);
             System.out.println("Computer Move:  " + computerMove);
             numMoves++;
@@ -31,8 +30,8 @@ public class Game {
                     System.out.println("Game finished in " + numMoves.toString() + " moves.");
                     return 2;
 
-                case 0:
-                    // Continue the game
+                default:
+                    // Case 0: Continue the game
                     break;
             }
         }
