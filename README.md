@@ -33,3 +33,7 @@ This process of showing symbols simultaneously continues until a player wins.
   - Choose 1 - to play again
   - Choose 0 - to quit the session
 - If the user chooses 1, the next game begins, otherwise the application terminates after displaying the total number of games played in the session and the number of games won by each player.
+
+
+### Flow of the Application
+- Main.java (Entry Point) --> Session.java --> Game.java

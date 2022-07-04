@@ -14,6 +14,6 @@ public class Main {
         Session session = new Session();
         session.startSession();
 
-        System.out.println("Closing the session, Thank you for playing..");
+        System.out.println("Closing the session, Thank you for playing..\n\n");
     }
 }

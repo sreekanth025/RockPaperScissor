@@ -26,9 +26,9 @@ class SessionTest {
 
         Session session = new Session();
         assertAll(
-                () -> assertEquals(false, session.askContinueToPlay()),
-                () -> assertEquals(true, session.askContinueToPlay()),
-                () -> assertEquals(false, session.askContinueToPlay())
+                () -> assertFalse(session.askContinueToPlay()),
+                () -> assertTrue(session.askContinueToPlay()),
+                () -> assertFalse(session.askContinueToPlay())
         );
 
         System.setIn(sysInBackup);
