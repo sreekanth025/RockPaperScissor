@@ -24,7 +24,7 @@ class GameTest {
 
     @Test
     public void testCheckWinner() {
-        System.out.println("This test ran");
+
         assertAll(
                 () -> assertEquals(0, game.checkWinner(Move.PAPER, Move.PAPER)),
                 () -> assertEquals(1, game.checkWinner(Move.PAPER, Move.ROCK)),
@@ -75,7 +75,7 @@ class GameTest {
     * Testing application behaviour with valid inputs
     * */
     @Test
-    public void testTakeUserInput() {
+    public void testTakeUserInput1() {
 
         InputStream sysInBackup = System.in;
         PrintStream sysOutBackup = System.out;

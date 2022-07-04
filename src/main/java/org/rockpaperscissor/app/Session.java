@@ -18,7 +18,7 @@ public class Session {
             Integer gameResult = game.startGame();
 
             if(gameResult == 1) userWins++;
-            else computerWins++;                // gameResult == 2
+            else computerWins++;    // gameResult == 2
 
             Boolean playNextGame = askContinueToPlay();
 
@@ -37,6 +37,12 @@ public class Session {
     }
 
 
+    /*
+    * Returns true if user enters 1
+    * Returns false if user enters 0
+    * Prompts the user again if he enters any other valid integer
+    * Returns false if he enters something other than integer
+    * */
     public Boolean askContinueToPlay() {
 
         System.out.print("\nEnter 1 to continue playing, 0 to quit: ");
@@ -48,7 +54,6 @@ public class Session {
             System.out.println("Encountered Exception: " + e);
             scanner.nextLine();
         }
-
 
         if(playNextGame != 0 && playNextGame != 1) {
             System.out.println("Please enter a valid choice");
