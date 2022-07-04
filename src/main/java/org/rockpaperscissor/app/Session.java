@@ -6,7 +6,7 @@ public class Session {
 
     private Integer userWins = 0;
     private Integer computerWins = 0;
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void startSession() {
 
@@ -40,13 +40,21 @@ public class Session {
     public Boolean askContinueToPlay() {
 
         System.out.print("\nEnter 1 to continue playing, 0 to quit: ");
-        Integer playNextGame = scanner.nextInt();
+        Integer playNextGame = 0;
+
+        try {
+            playNextGame = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Encountered Exception: " + e);
+            scanner.nextLine();
+        }
+
 
         if(playNextGame != 0 && playNextGame != 1) {
             System.out.println("Please enter a valid choice");
             return askContinueToPlay();
         }
 
-        return playNextGame == 1 ? true : false;
+        return playNextGame == 1;
     }
 }

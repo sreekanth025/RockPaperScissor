@@ -66,7 +66,15 @@ public class Game {
 
     public Move takeUserInput() {
         System.out.print("\nEnter your choice: ");
-        Integer userMove = scanner.nextInt();
+        Integer userMove = 0;
+
+        try{
+            userMove = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Encountered Exception: " + e);
+            scanner.nextLine();
+            System.exit(1);
+        }
 
         if(userMove < 0 || userMove > 2) {
             System.out.println("Please enter a valid choice");
