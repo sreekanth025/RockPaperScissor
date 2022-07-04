@@ -1,8 +1,15 @@
 package org.rockpaperscissor.app;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Game {
 
+    private static final Move[] MOVES = Move.values();
+    private static final Random RANDOM = new Random();
+    private Scanner scanner = new Scanner(System.in);
     private Integer numMoves = 0;
+
 
     public Integer startGame() {
 
@@ -10,32 +17,25 @@ public class Game {
 
         while (true) {
 
-            Move userMove = Utils.takeUserInput();
-            Move computerMove = Utils.randomMoveGenerator();
+            Move userMove = takeUserInput();
+            Move computerMove = randomMoveGenerator();
 
             System.out.println("Your move:      " + userMove);
             System.out.println("Computer Move:  " + computerMove);
             numMoves++;
             Integer gameResult = checkWinner(userMove, computerMove);
 
-            switch (gameResult) {
-
-                case 1:
-                    System.out.println("\nYou won the game !!!");
-                    System.out.println("Game finished in " + numMoves.toString() + " moves.");
-                    return 1;
-
-                case 2:
-                    System.out.println("\nComputer won the game !");
-                    System.out.println("Game finished in " + numMoves.toString() + " moves.");
-                    return 2;
-
-                default:
-                    // Case 0: Continue the game
-                    break;
+            if(gameResult == 1) {
+                System.out.println("\nYou won the game !!!");
+                System.out.println("Game finished in " + numMoves + " moves.");
+                return 1;
+            }
+            else { // gameResult == 2
+                System.out.println("\nComputer won the game !");
+                System.out.println("Game finished in " + numMoves + " moves.");
+                return 2;
             }
         }
-
     }
 
 
@@ -58,4 +58,21 @@ public class Game {
         return 0;
     }
 
+
+    public Move randomMoveGenerator() {
+        return MOVES[RANDOM.nextInt(3)];
+    }
+
+
+    public Move takeUserInput() {
+        System.out.print("\nEnter your choice: ");
+        Integer userMove = scanner.nextInt();
+
+        if(userMove < 0 || userMove > 2) {
+            System.out.println("Please enter a valid choice");
+            return takeUserInput();
+        }
+
+        return MOVES[userMove];
+    }
 }
